@@ -1,5 +1,9 @@
+//Input parser
+const inputString=document.getElementsByTagName("pre")[0].innerHTML
+const inputArray=inputString.split("\n")
 
 
+// Part 1
 // A B C = rock paper scissor
 // X Y Z = rock paper scissor
 const choiceScore = {
@@ -29,7 +33,7 @@ losses.forEach((e) =>
   results.set(e, resultScore.lose + choiceScore[e.charAt(2)])
 );
 
-const final = input.reduce((total, game) => {
+const final = inputArray.reduce((total, game) => {
   return total + (game.length < 2 ? 0 : results.get(game));
 }, 0);
 
