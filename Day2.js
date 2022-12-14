@@ -40,3 +40,31 @@ const final = input.reduce((total, game) => {
   return total + (game.length < 2 ? 0 : results.get(game));
 }, 0);
 
+
+//part 2
+const decipher = {
+  "A Z": "A Y", //win rock paper
+  "A Y": "A X", //draw rock rock
+  "A X": "A Z", //lose rock scisor
+
+  "B Z": "B Z", //win paper scissor
+  "B Y": "B Y", //draw paper paper
+  "B X": "B X", //lose paper rock
+
+  "C Z": "C X", //win scissor rock
+  "C Y": "C Z", //draw scissor scissor
+  "C X": "C Y", //lose scissor paper
+};
+
+const part2 = input.reduce((total, game) => {
+  const translated = decipher[game];
+  if (translated) {
+    return total + results.get(translated);
+  } else {
+    return total;
+  }
+}, 0);
+
+
+
+
